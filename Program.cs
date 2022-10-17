@@ -12,12 +12,12 @@
     internal static char GetChar(string s, string t)
     {
         for (int i = 0; i < s.Length; i++)
-            for (int j = 0; j < t.Length; j++)
-                if (s[i] == t[j])
-                {
-                    t = t.Remove(j, 1);
-                    break;
-                }
+        {
+            int index = t.IndexOf(s[i]);
+            if (index == -1)
+                return s[i];
+            t = t.Remove(index, 1);
+        }
         return t[0];
     }
 }
